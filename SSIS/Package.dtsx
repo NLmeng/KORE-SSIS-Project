@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="7/23/2024 12:25:39 AM"
@@ -11,9 +11,1178 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionGUID="{C5A58C88-18ED-47FF-8FF1-D3C5EE4BBE11}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{D74A505F-EE5F-40CD-8BB9-37D96191C67E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_{Lymeng_Naret\}]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{12839934-DCE5-4195-83BB-B065330866A4}"
+      DTS:ObjectName="DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_{Lymeng_Naret}">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-D8T55E6\SQLEXPRESS;Initial Catalog=KoreAssignment_{Lymeng_Naret};Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{12839934-DCE5-4195-83BB-B065330866A4}DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_{Lymeng_Naret} 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Users CSV Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Connection to the src csv containing users' datas."
+      DTS:DTSID="{F4AC1F97-AFBB-4790-A63A-8EB899B3C51B}"
+      DTS:ObjectName="Users CSV Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\lymen\source\repos\KORE-MINT-Project\Data\MINT-Users.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UserID"
+              DTS:DTSID="{71780E90-11A2-442A-AF6C-BD272B91083E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FullName"
+              DTS:DTSID="{A5870799-F942-4D88-8EDF-3DE76CB0BF10}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Age"
+              DTS:DTSID="{7795D937-B73A-4743-8F1B-359C2F8DE0A9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{AF965ED3-859E-4E2C-BD89-9B09B0B51B0A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationDate"
+              DTS:DTSID="{33108625-BABD-4CAE-B781-6163367776F1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastLoginDate"
+              DTS:DTSID="{CD7BC8DF-A5F4-43BE-AAF3-0E96A83F32D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PurchaseTotal"
+              DTS:DTSID="{F1911DD6-9D8D-452E-A546-E74F109BB1F3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Extract and Load to Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0D9C7F9E-0EBE-4902-B9A2-FE1843C41B73}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract and Load to Staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extract and Load to Staging\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Extract and Load to Staging\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Inputs[Data Conversion Input].Columns[UserID]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UserID"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[UserID]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Inputs[Data Conversion Input].Columns[FullName]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FullName"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[FullName]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Inputs[Data Conversion Input].Columns[Age]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Age"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Inputs[Data Conversion Input].Columns[Email]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Email"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Inputs[Data Conversion Input].Columns[RegistrationDate]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RegistrationDate"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Inputs[Data Conversion Input].Columns[LastLoginDate]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastLoginDate"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[LastLoginDate]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Inputs[Data Conversion Input].Columns[PurchaseTotal]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PurchaseTotal"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[PurchaseTotal]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Extract and Load to Staging\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std. UserID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std. UserID]"
+                      name="Std. UserID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[UserID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std. FullName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std. FullName]"
+                      name="Std. FullName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[FullName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  Age]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  Age]"
+                      name="Std.  Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Age]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  Email]"
+                      name="Std.  Email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Email]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  RegistrationDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  RegistrationDate]"
+                      name="Std.  RegistrationDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[RegistrationDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  LastLoginDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  LastLoginDate]"
+                      name="Std.  LastLoginDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[LastLoginDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  PurchaseTotal]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  PurchaseTotal]"
+                      name="Std.  PurchaseTotal"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[PurchaseTotal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Extract and Load to Staging\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success)"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column - Null Validation (Success)"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input].Columns[Age]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Age"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Age]"
+                      truncationRowDisposition="IgnoreFailure"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Age]} == (DT_I4)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Age]} ? (DT_I4)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Age]} : NULL(DT_I4)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)Age == (DT_I4)Age ? (DT_I4)Age : NULL(DT_I4)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input].Columns[UserID]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UserID"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[UserID]"
+                      truncationRowDisposition="IgnoreFailure"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[UserID]} == (DT_I4)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[UserID]} ? (DT_I4)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[UserID]} : NULL(DT_I4)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)UserID == (DT_I4)UserID ? (DT_I4)UserID : NULL(DT_I4)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input].Columns[FullName]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FullName"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[FullName]"
+                      truncationRowDisposition="IgnoreFailure"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,255)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[FullName]} == (DT_WSTR,255)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[FullName]} ? (DT_WSTR,255)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[FullName]} : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)FullName == (DT_WSTR,255)FullName ? (DT_WSTR,255)FullName : ""</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input].Columns[Email]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Email"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Email]"
+                      truncationRowDisposition="IgnoreFailure"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,255)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Email]} == (DT_WSTR,255)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Email]} ? (DT_WSTR,255)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Email]} : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)Email == (DT_WSTR,255)Email ? (DT_WSTR,255)Email : ""</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input].Columns[RegistrationDate]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RegistrationDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                      truncationRowDisposition="IgnoreFailure"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBDATE)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[RegistrationDate]} == (DT_DBDATE)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[RegistrationDate]} ? (DT_DBDATE)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[RegistrationDate]} : NULL(DT_DBDATE)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)RegistrationDate == (DT_DBDATE)RegistrationDate ? (DT_DBDATE)RegistrationDate : NULL(DT_DBDATE)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input].Columns[LastLoginDate]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastLoginDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[LastLoginDate]"
+                      truncationRowDisposition="IgnoreFailure"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBDATE)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[LastLoginDate]} == (DT_DBDATE)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[LastLoginDate]} ? (DT_DBDATE)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[LastLoginDate]} : NULL(DT_DBDATE)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)LastLoginDate == (DT_DBDATE)LastLoginDate ? (DT_DBDATE)LastLoginDate : NULL(DT_DBDATE)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input].Columns[PurchaseTotal]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PurchaseTotal"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[PurchaseTotal]"
+                      truncationRowDisposition="IgnoreFailure"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_R8)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[PurchaseTotal]} == (DT_R8)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[PurchaseTotal]} ? (DT_R8)#{Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[PurchaseTotal]} : NULL(DT_R8)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_R8)PurchaseTotal == (DT_R8)PurchaseTotal ? (DT_R8)PurchaseTotal : NULL(DT_R8)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract and Load to Staging\Destination Staging"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination Staging"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[Users]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract and Load to Staging\Destination Staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_{Lymeng_Naret\}]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_{Lymeng_Naret\}]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].Columns[Std. UserID]"
+                      cachedDataType="i4"
+                      cachedName="Std. UserID"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[UserID]"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std. UserID]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].Columns[Std. FullName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Std. FullName"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std. FullName]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].Columns[Std.  Age]"
+                      cachedDataType="i4"
+                      cachedName="Std.  Age"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  Age]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].Columns[Std.  Email]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Std.  Email"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  Email]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].Columns[Std.  RegistrationDate]"
+                      cachedDataType="dbDate"
+                      cachedName="Std.  RegistrationDate"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].Columns[Std.  LastLoginDate]"
+                      cachedDataType="dbDate"
+                      cachedName="Std.  LastLoginDate"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[LastLoginDate]"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  LastLoginDate]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].Columns[Std.  PurchaseTotal]"
+                      cachedDataType="decimal"
+                      cachedName="Std.  PurchaseTotal"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTotal]"
+                      lineageId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output].Columns[Std.  PurchaseTotal]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[StgID]"
+                      dataType="i4"
+                      name="StgID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[UserID]"
+                      dataType="i4"
+                      name="UserID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      dataType="wstr"
+                      length="255"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      dataType="i4"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                      dataType="dbDate"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[LastLoginDate]"
+                      dataType="dbDate"
+                      name="LastLoginDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTotal]"
+                      dataType="r8"
+                      name="PurchaseTotal" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract and Load to Staging\Destination Staging.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract and Load to Staging\Destination Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Destination Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract and Load to Staging\Destination Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract and Load to Staging\Source Data"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source Data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract and Load to Staging\Source Data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Users CSV Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Users CSV Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[UserID]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[UserID]"
+                      length="50"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[UserID]"
+                      name="UserID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[FullName]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[FullName]"
+                      length="50"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[FullName]"
+                      name="FullName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Age]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                      length="50"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Age]"
+                      name="Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Email]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      length="50"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                      length="50"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                      name="RegistrationDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[LastLoginDate]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[LastLoginDate]"
+                      length="50"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[LastLoginDate]"
+                      name="LastLoginDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[PurchaseTotal]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[PurchaseTotal]"
+                      length="50"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[PurchaseTotal]"
+                      name="PurchaseTotal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[UserID]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="UserID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[FullName]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[LastLoginDate]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="LastLoginDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[PurchaseTotal]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="PurchaseTotal" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extract and Load to Staging.Paths[Data Conversion Output]"
+              endId="Package\Extract and Load to Staging\Destination Staging.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Extract and Load to Staging.Paths[Derived Column Output]"
+              endId="Package\Extract and Load to Staging\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Extract and Load to Staging.Paths[Flat File Source Output]"
+              endId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="214,42"
+          Id="Package\Extract and Load to Staging"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Extract and Load to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Extract and Load to Staging\Data Conversion"
+          TopLeft="194,218" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Extract and Load to Staging\Destination Staging"
+          TopLeft="185.5,340.5" />
+        <EdgeLayout
+          Id="Package\Extract and Load to Staging.Paths[Data Conversion Output]"
+          TopLeft="273.5,260">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80.5"
+              Start="0,0"
+              End="0,73">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Extract and Load to Staging\Source Data"
+          TopLeft="508,105" />
+        <NodeLayout
+          Size="290,42"
+          Id="Package\Extract and Load to Staging\Derived Column - Null Validation (Success)"
+          TopLeft="436,221" />
+        <EdgeLayout
+          Id="Package\Extract and Load to Staging.Paths[Flat File Source Output]"
+          TopLeft="579.5,147">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74"
+              Start="0,0"
+              End="0,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extract and Load to Staging.Paths[Derived Column Output]"
+          TopLeft="436,240.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-81,0"
+              Start="0,0"
+              End="-73.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-73.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract and Load to Staging\Destination Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
