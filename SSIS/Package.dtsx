@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="83"
-  DTS:VersionGUID="{EB8A01D5-2512-4DED-BBF5-5B3A0D3CFAEB}">
+  DTS:VersionBuild="87"
+  DTS:VersionGUID="{AA2C9720-A463-4941-A0DF-9E721EAA4368}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4102,7 +4102,7 @@ WHERE UserID = ?
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{12839934-DCE5-4195-83BB-B065330866A4}"
-          SQLTask:SqlStatementSource="USE [KoreAssignment_Lymeng_Naret]&#xA;GO&#xA;&#xA;-- delete entries from stg.Users that are present in stg.Users_Errors&#xA;DELETE u&#xA;FROM stg.Users u&#xA;INNER JOIN stg.Users_Errors e ON u.StgID = e.StgID;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;-- delete entries from stg.Users that are present in stg.Users_Errors&#xA;DELETE u&#xA;FROM stg.Users u&#xA;INNER JOIN stg.Users_Errors e ON u.StgID = e.StgID;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4119,7 +4119,7 @@ WHERE UserID = ?
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{12839934-DCE5-4195-83BB-B065330866A4}"
-          SQLTask:SqlStatementSource="USE [KoreAssignment_Lymeng_Naret]&#xA;GO&#xA;&#xA;-- assuming we want to keep track (sum) of all purchase, it also makes sense to keep oldest registration date and newest login date&#xA;;WITH CTE AS (&#xA;    SELECT &#xA;        UserID, &#xA;        MIN(RegistrationDate) AS MinRegistrationDate, &#xA;        MAX(LastLoginDate) AS MaxLoginDate, &#xA;        SUM(PurchaseTotal) AS TotalPurchase&#xA;    FROM &#xA;        stg.Users&#xA;    GROUP BY &#xA;        UserID&#xA;),&#xA;&#xA;-- filter for the one entry to keep (use for eliminating dupe later)&#xA;DataToKeep AS (&#xA;    SELECT &#xA;        stg.UserID, &#xA;        stg.FullName, &#xA;        stg.Age, &#xA;        stg.Email, &#xA;        stg.StgID, &#xA;        CTE.MinRegistrationDate AS RegistrationDate, &#xA;        CTE.MaxLoginDate AS LastLoginDate, &#xA;        CTE.TotalPurchase AS PurchaseTotal, &#xA;        ROW_NUMBER() OVER (PARTITION BY stg.UserID ORDER BY stg.LastLoginDate DESC, stg.StgID DESC) AS RowNum&#xA;    FROM &#xA;        stg.Users stg&#xA;    INNER JOIN&#xA;        CTE ON stg.UserID = CTE.UserID&#xA;)&#xA;&#xA;-- store results in temp for scoping&#xA;SELECT *&#xA;&#x9;INTO #TempDataToKeep&#xA;&#x9;FROM DataToKeep;&#xA;&#xA;-- delete dupe&#xA;DELETE u&#xA;&#x9;FROM stg.Users u&#xA;&#x9;INNER JOIN #TempDataToKeep t ON u.UserID = t.UserID AND u.StgID = t.StgID&#xA;&#x9;WHERE t.RowNum &gt; 1;&#xA;&#xA;-- update the data back into the stg.Users table&#xA;UPDATE u&#xA;&#x9;SET &#xA;&#x9;&#x9;u.RegistrationDate = t.RegistrationDate,&#xA;   &#x9;&#x9;u.LastLoginDate = t.LastLoginDate,&#xA;   &#x9;&#x9; u.PurchaseTotal = t.PurchaseTotal&#xA;&#x9;FROM stg.Users u&#xA;&#x9;INNER JOIN #TempDataToKeep t ON u.UserID = t.UserID&#xA;&#x9;WHERE t.RowNum = 1;&#xA;&#xA;-- clean the temporary table&#xA;DROP TABLE #TempDataToKeep;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="-- assuming we want to keep track (sum) of all purchase, it also makes sense to keep oldest registration date and newest login date&#xA;;WITH CTE AS (&#xA;    SELECT &#xA;        UserID, &#xA;        MIN(RegistrationDate) AS MinRegistrationDate, &#xA;        MAX(LastLoginDate) AS MaxLoginDate, &#xA;        SUM(PurchaseTotal) AS TotalPurchase&#xA;    FROM &#xA;        stg.Users&#xA;    GROUP BY &#xA;        UserID&#xA;),&#xA;&#xA;-- filter for the one entry to keep (use for eliminating dupe later)&#xA;DataToKeep AS (&#xA;    SELECT &#xA;        stg.UserID, &#xA;        stg.FullName, &#xA;        stg.Age, &#xA;        stg.Email, &#xA;        stg.StgID, &#xA;        CTE.MinRegistrationDate AS RegistrationDate, &#xA;        CTE.MaxLoginDate AS LastLoginDate, &#xA;        CTE.TotalPurchase AS PurchaseTotal, &#xA;        ROW_NUMBER() OVER (PARTITION BY stg.UserID ORDER BY stg.LastLoginDate DESC, stg.StgID DESC) AS RowNum&#xA;    FROM &#xA;        stg.Users stg&#xA;    INNER JOIN&#xA;        CTE ON stg.UserID = CTE.UserID&#xA;)&#xA;&#xA;-- store results in temp for scoping&#xA;SELECT *&#xA;&#x9;INTO #TempDataToKeep&#xA;&#x9;FROM DataToKeep;&#xA;&#xA;-- delete dupe&#xA;DELETE u&#xA;&#x9;FROM stg.Users u&#xA;&#x9;INNER JOIN #TempDataToKeep t ON u.UserID = t.UserID AND u.StgID = t.StgID&#xA;&#x9;WHERE t.RowNum &gt; 1;&#xA;&#xA;-- update the data back into the stg.Users table&#xA;UPDATE u&#xA;&#x9;SET &#xA;&#x9;&#x9;u.RegistrationDate = t.RegistrationDate,&#xA;   &#x9;&#x9;u.LastLoginDate = t.LastLoginDate,&#xA;   &#x9;&#x9; u.PurchaseTotal = t.PurchaseTotal&#xA;&#x9;FROM stg.Users u&#xA;&#x9;INNER JOIN #TempDataToKeep t ON u.UserID = t.UserID&#xA;&#x9;WHERE t.RowNum = 1;&#xA;&#xA;-- clean the temporary table&#xA;DROP TABLE #TempDataToKeep;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -4174,16 +4174,24 @@ WHERE UserID = ?
           Id="Package\Extract and Load to Staging"
           TopLeft="129.5,122.5" />
         <NodeLayout
+          Size="232,42"
+          Id="Package\Incremental Load to Production"
+          TopLeft="121.5,509.5" />
+        <NodeLayout
           Size="210,42"
           Id="Package\Transform - Error Handling"
           TopLeft="128.5,325.5" />
         <NodeLayout
+          Size="211,42"
+          Id="Package\Transform - Isolation"
+          TopLeft="129.5,415.5" />
+        <NodeLayout
           Size="234,42"
           Id="Package\Transform - Remove Duplicates"
-          TopLeft="116.5,226.5" />
+          TopLeft="117.5,226.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="235,164.5">
+          TopLeft="235.5,164.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4205,7 +4213,7 @@ WHERE UserID = ?
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="233.5,268.5">
+          TopLeft="234,268.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4225,10 +4233,6 @@ WHERE UserID = ?
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="211,42"
-          Id="Package\Transform - Isolation"
-          TopLeft="129.5,415.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="234.25,367.5">
@@ -4251,10 +4255,6 @@ WHERE UserID = ?
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="232,42"
-          Id="Package\Incremental Load to Production"
-          TopLeft="121.5,509.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="236.25,457.5">
@@ -4384,26 +4384,193 @@ WHERE UserID = ?
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Incremental Load to Production">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="236,42"
+          Id="Package\Incremental Load to Production\OLE DB Source - Staging Users"
+          TopLeft="254,173" />
+        <NodeLayout
+          Size="271,42"
+          Id="Package\Incremental Load to Production\OLE DB Destination - Production Users"
+          TopLeft="421,458" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Incremental Load to Production\Lookup"
+          TopLeft="308,299" />
+        <NodeLayout
+          Size="267,42"
+          Id="Package\Incremental Load to Production\OLE DB Command - Production Users"
+          TopLeft="81,457" />
+        <EdgeLayout
+          Id="Package\Incremental Load to Production.Paths[Lookup Match Output]"
+          TopLeft="347.666666666667,341">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-133.166666666667,116"
+              Start="0,0"
+              End="-133.166666666667,108.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.3550600343053" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.3550600343053"
+                    Point2="0,47.3550600343053"
+                    Point3="-4,47.3550600343053" />
+                  <mssgle:LineSegment
+                    End="-129.166666666667,47.3550600343053" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-129.166666666667,47.3550600343053"
+                    Point2="-133.166666666667,47.3550600343053"
+                    Point3="-133.166666666667,51.3550600343053" />
+                  <mssgle:LineSegment
+                    End="-133.166666666667,108.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-114.774720052083,52.3550600343053,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Incremental Load to Production.Paths[OLE DB Source Output]"
+          TopLeft="368.75,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,84"
+              Start="0,0"
+              End="0,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Incremental Load to Production.Paths[Lookup No Match Output]"
+          TopLeft="383.333333333333,341">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="173.166666666667,117"
+              Start="0,0"
+              End="173.166666666667,109.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.7632933104631" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.7632933104631"
+                    Point2="0,47.7632933104631"
+                    Point3="4,47.7632933104631" />
+                  <mssgle:LineSegment
+                    End="169.166666666667,47.7632933104631" />
+                  <mssgle:CubicBezierSegment
+                    Point1="169.166666666667,47.7632933104631"
+                    Point2="173.166666666667,47.7632933104631"
+                    Point3="173.166666666667,51.7632933104631" />
+                  <mssgle:LineSegment
+                    End="173.166666666667,109.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="32.2769466145833,51.9468267581475,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Incremental Load to Production\OLE DB Source - Staging Users">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Incremental Load to Production\OLE DB Destination - Production Users">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Incremental Load to Production\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[prod].[Users]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Transform - Error Handling">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="123,42"
-          Id="Package\Transform - Error Handling\Union All"
-          TopLeft="204,312" />
-        <NodeLayout
           Size="195,42"
           Id="Package\Transform - Error Handling\OLE DB Source - Users"
           TopLeft="182,75" />
         <NodeLayout
-          Size="252,42"
-          Id="Package\Transform - Error Handling\OLE DB Destination - Users_Errors"
-          TopLeft="174,442" />
+          Size="123,42"
+          Id="Package\Transform - Error Handling\Union All"
+          TopLeft="204,312" />
         <NodeLayout
           Size="147,42"
           Id="Package\Transform - Error Handling\Handle Errors"
           TopLeft="193,189" />
+        <NodeLayout
+          Size="252,42"
+          Id="Package\Transform - Error Handling\OLE DB Destination - Users_Errors"
+          TopLeft="174,442" />
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Union All Output 1]"
           TopLeft="265.5,354">
@@ -4545,6 +4712,30 @@ WHERE UserID = ?
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Transform - Error Handling.Paths[Null_Email]"
+          TopLeft="266,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,81"
+              Start="0,0"
+              End="0,73.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.35212890625,31.21875,46.7042578125,11.0625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Neg_Total]"
           TopLeft="266,231">
           <EdgeLayout.Curve>
@@ -4589,6 +4780,54 @@ WHERE UserID = ?
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-19.96134765625,30.91845703125,39.9226953125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform - Error Handling.Paths[Bad_RegDate]"
+          TopLeft="266,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,81"
+              Start="0,0"
+              End="0,73.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-30.38134765625,30.91845703125,60.7626953125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform - Error Handling.Paths[Bad_LoginDate]"
+          TopLeft="266,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,81"
+              Start="0,0"
+              End="0,73.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-33.78634765625,30.91845703125,67.5726953125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4640,78 +4879,6 @@ WHERE UserID = ?
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transform - Error Handling.Paths[Bad_LoginDate]"
-          TopLeft="266,231">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,81"
-              Start="0,0"
-              End="0,73.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,73.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-33.78634765625,30.91845703125,67.5726953125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transform - Error Handling.Paths[Bad_RegDate]"
-          TopLeft="266,231">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,81"
-              Start="0,0"
-              End="0,73.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,73.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-30.38134765625,30.91845703125,60.7626953125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transform - Error Handling.Paths[Null_Email]"
-          TopLeft="266,231">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,81"
-              Start="0,0"
-              End="0,73.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,73.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-23.35212890625,31.21875,46.7042578125,11.0625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -4738,173 +4905,6 @@ WHERE UserID = ?
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Incremental Load to Production">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="236,42"
-          Id="Package\Incremental Load to Production\OLE DB Source - Staging Users"
-          TopLeft="254,173" />
-        <NodeLayout
-          Size="271,42"
-          Id="Package\Incremental Load to Production\OLE DB Destination - Production Users"
-          TopLeft="421,458" />
-        <NodeLayout
-          Size="115,42"
-          Id="Package\Incremental Load to Production\Lookup"
-          TopLeft="308,299" />
-        <EdgeLayout
-          Id="Package\Incremental Load to Production.Paths[OLE DB Source Output]"
-          TopLeft="368.75,215">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,84"
-              Start="0,0"
-              End="0,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="267,42"
-          Id="Package\Incremental Load to Production\OLE DB Command - Production Users"
-          TopLeft="81,457" />
-        <EdgeLayout
-          Id="Package\Incremental Load to Production.Paths[Lookup Match Output]"
-          TopLeft="347.666666666667,341">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-133.166666666667,116"
-              Start="0,0"
-              End="-133.166666666667,108.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.3550600343053" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43.3550600343053"
-                    Point2="0,47.3550600343053"
-                    Point3="-4,47.3550600343053" />
-                  <mssgle:LineSegment
-                    End="-129.166666666667,47.3550600343053" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-129.166666666667,47.3550600343053"
-                    Point2="-133.166666666667,47.3550600343053"
-                    Point3="-133.166666666667,51.3550600343053" />
-                  <mssgle:LineSegment
-                    End="-133.166666666667,108.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-114.774720052083,52.3550600343053,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Incremental Load to Production.Paths[Lookup No Match Output]"
-          TopLeft="383.333333333333,341">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="173.166666666667,117"
-              Start="0,0"
-              End="173.166666666667,109.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.7632933104631" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43.7632933104631"
-                    Point2="0,47.7632933104631"
-                    Point3="4,47.7632933104631" />
-                  <mssgle:LineSegment
-                    End="169.166666666667,47.7632933104631" />
-                  <mssgle:CubicBezierSegment
-                    Point1="169.166666666667,47.7632933104631"
-                    Point2="173.166666666667,47.7632933104631"
-                    Point3="173.166666666667,51.7632933104631" />
-                  <mssgle:LineSegment
-                    End="173.166666666667,109.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="30.7769466145833,52.7632933104631,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Incremental Load to Production\OLE DB Source - Staging Users">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Incremental Load to Production\OLE DB Destination - Production Users">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Incremental Load to Production\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[prod].[Users]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
