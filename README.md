@@ -6,32 +6,41 @@
 
 #### 2. Restore the Database Backup
 
+- Find and unzip the Zipped `.bak` file in [`Backup` dir](https://github.com/NLmeng/KORE-SSIS-Project/tree/main/Backup)
 - Open **SQL Server Management Studio (SSMS)**.
 - Connect to your SQL Server instance.
 - Right-click on **Databases** and select **Restore Database...**.
-- In the **Source** section, select **Device** and click the ellipsis button (...).
-- Add the provided `.bak` file from the ZIP found in `Backup` dir.
+- In the **Source** section, select **From device** and click the ellipsis button (...).
+- Click **Add** then find and use the provided `.bak` file.
 - Click **OK** to restore the database.
+
+Troubleshoot
+
+- Verify necessary permission for the directories being read to.
+- Use the latest (newest) backup from the `.bak` if somehow there are multiple.
 
 #### 3. Open the SSIS Solution
 
 - Open **SQL Server Data Tools (SSDT)** or **Microsoft Visual Studio**.
 - Go to **File > Open > Project/Solution**.
-- Navigate to the cloned repository and select the `.sln` file found in `SSIS` dir to open the SSIS solution.
+- Navigate to the cloned repository and select the `.sln` file found in [`SSIS` dir](https://github.com/NLmeng/KORE-SSIS-Project/tree/main/SSIS) to open the SSIS solution.
 
 #### 4. Configure the Connection Managers
 
 - In SSDT, open the SSIS package (typically a `.dtsx` file).
 - Right-click on each **Connection Manager** at the bottom of the screen and select **Edit**.
-- Update the connection strings to point to your SQL Server instance and the location of your CSV file.
-  - for SQL Server: Update the server name and database.
-  - for CSV: Update the file path to the location of your CSV file (also found in `Data` dir).
+- Update the connection strings to point to your SQL Server instance and the location of your CSV file. There should be 2 connection strings, one for SQL Server and one for CSV connection.
+  - for SQL Server: Update the server or file name to your own server that you just used to restore the database (Under `Initial Catalog` should be `KoreAssignment_Lymeng_Naret` if name unchanged when restoring).
+  - for CSV: Update the file path to the location of your CSV file (also found in [`Data` dir](https://github.com/NLmeng/KORE-SSIS-Project/tree/main/Data)). (Code page should be kept 65001 (UTF-8) to avoid issues)
 
 #### 5. Execute the SSIS Package
 
 - In SSDT, right-click on the SSIS package or `.dtsx` and select **Execute Package**.
-- Monitor the execution process to ensure it completes successfully.
-- Verify that the data has been extracted, transformed, cleaned, and loaded into the production table.
+- You can verify manually via SSDT tool or using the scripts provided [here](https://github.com/NLmeng/KORE-SSIS-Project/tree/main/SQLScripts)
+
+#### Executing the SSIS Package
+
+NOTE: you may find more records than expected as the backuped database already had some records previously. however, the production table should still remain the same given that you executed on the same CSV.
 
 ## Task Process
 
@@ -269,8 +278,6 @@
 
 ### Result of Execution:
 
-In the extraction stage, all 33 records are inserted into the staging table. In the first cleaning stage, 3 records are identified as duplicates and removed. At this stage, 2 records throw an error or cant be type casted, so they are sent to a database `dbo.Error_Log_For_Null_Validation` for manual inspection (one is non-number age and the other is a future date). Then, during the error handling stage, 8 records are found, whether because of null UserID, null/malformed Email, null registration date, negative or null age, negative purchase total, future dates, etc. In the incremental load stage, after removing the 3 duplicates and isolated the 10 records, there are 20 records left that will be loaded into production table.
+In the extraction stage, all 33 records are inserted into the staging table. In the first cleaning stage, 3 records are identified as duplicates and removed. At this stage, 2 records throw an error or cant be type casted, so they are sent to a database `dbo.Error_Log_For_Null_Validation` for manual inspection (one is non-number age and the other is a future date). Then, during the error handling stage, 8 records are found, whether because of null UserID, null/malformed Email, null registration date, negative or null age, negative purchase total, future dates, etc. In the incremental load stage, after removing the 3 duplicates and isolated the 10 records, there are 20 records left that will be loaded into production table. If the number of record differs, please see [NOTE](#executing-the-ssis-Package).
 
 The most challenging part for me is definitely making my best assumption to come up with appropriate criteria such as what to filter out, what counts as error, what should be kept and sent to production table. I think this would be resolved in real-world by having a clear communication with the stakeholders and understanding the business requirements better, but since this is a home task, I had to make my best guess. It was also a bit of a challenge to handle the fail-path, for example I am unsure of how much to handle and the best practices for it. As a solution, I decided to create a new table `stg.Users_Errors` to insert malformed entries for manual inspection. There are also other `dbo.*` databases that I used to store results that caused an error during parts that I think may be crucial or sensitive.
-
-todo: update readme to link directly to dir
