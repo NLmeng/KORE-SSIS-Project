@@ -35,6 +35,26 @@ BEGIN
 END
 GO
 
+IF OBJECT_ID('dbo.Error_Log_For_Src_Extraction', 'U') IS NOT NULL
+BEGIN
+    TRUNCATE TABLE dbo.Error_Log_For_Src_Extraction;
+END
+GO
+
+
+IF OBJECT_ID('dbo.Error_Log_For_Null_Validation', 'U') IS NOT NULL
+BEGIN
+    TRUNCATE TABLE dbo.Error_Log_For_Null_Validation;
+END
+GO
+
+IF OBJECT_ID('dbo.Error_Log_For_Conditional_Split', 'U') IS NOT NULL
+BEGIN
+    TRUNCATE TABLE dbo.Error_Log_For_Conditional_Split;
+END
+GO
+
+
 -- Recreate the stg.Users table
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'stg.Users') AND type in (N'U'))
 BEGIN
@@ -81,3 +101,4 @@ CREATE TABLE prod.Users (
 	);
 END
 GO
+

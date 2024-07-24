@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="87"
-  DTS:VersionGUID="{AA2C9720-A463-4941-A0DF-9E721EAA4368}">
+  DTS:VersionBuild="110"
+  DTS:VersionGUID="{67FF0336-9C21-4CE4-838C-851CFA7AFC4B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -52,7 +52,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="UserID"
-              DTS:DTSID="{71780E90-11A2-442A-AF6C-BD272B91083E}"
+              DTS:DTSID="{A2B32FA6-AF38-4E39-8FAC-B19AA3DCC067}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -61,7 +61,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FullName"
-              DTS:DTSID="{A5870799-F942-4D88-8EDF-3DE76CB0BF10}"
+              DTS:DTSID="{522D140E-6378-4966-9621-787120A7B2D0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -70,7 +70,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Age"
-              DTS:DTSID="{7795D937-B73A-4743-8F1B-359C2F8DE0A9}"
+              DTS:DTSID="{659BD2AB-7799-4C3C-BBD6-C738931E6DC1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -79,7 +79,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Email"
-              DTS:DTSID="{AF965ED3-859E-4E2C-BD89-9B09B0B51B0A}"
+              DTS:DTSID="{BD01492C-DD87-48E0-B0A1-A6FF6AFE782C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -88,7 +88,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="RegistrationDate"
-              DTS:DTSID="{33108625-BABD-4CAE-B781-6163367776F1}"
+              DTS:DTSID="{A2C6E397-C16B-4777-B000-4656E6E7E319}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -97,7 +97,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="LastLoginDate"
-              DTS:DTSID="{CD7BC8DF-A5F4-43BE-AAF3-0E96A83F32D9}"
+              DTS:DTSID="{9727881A-C854-4477-950A-CB5411F59AB7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -106,13 +106,24 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PurchaseTotal"
-              DTS:DTSID="{F1911DD6-9D8D-452E-A546-E74F109BB1F3}"
+              DTS:DTSID="{DA8B86F6-7FF1-40A9-93A2-561C0CDC254B}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{3893CC74-7A5B-432D-9319-84460D97AA68}"
+      DTS:ObjectName="ConnectionManagerName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_Lymeng_Naret</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -391,9 +402,9 @@
                       cachedLength="50"
                       cachedName="Age"
                       errorOrTruncationOperation="Computation"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Age]"
-                      truncationRowDisposition="IgnoreFailure"
+                      truncationRowDisposition="RedirectRow"
                       usageType="readWrite">
                       <properties>
                         <property
@@ -416,9 +427,9 @@
                       cachedLength="50"
                       cachedName="UserID"
                       errorOrTruncationOperation="Computation"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[UserID]"
-                      truncationRowDisposition="IgnoreFailure"
+                      truncationRowDisposition="RedirectRow"
                       usageType="readWrite">
                       <properties>
                         <property
@@ -441,9 +452,9 @@
                       cachedLength="50"
                       cachedName="FullName"
                       errorOrTruncationOperation="Computation"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[FullName]"
-                      truncationRowDisposition="IgnoreFailure"
+                      truncationRowDisposition="RedirectRow"
                       usageType="readWrite">
                       <properties>
                         <property
@@ -466,9 +477,9 @@
                       cachedLength="50"
                       cachedName="Email"
                       errorOrTruncationOperation="Computation"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Email]"
-                      truncationRowDisposition="IgnoreFailure"
+                      truncationRowDisposition="RedirectRow"
                       usageType="readWrite">
                       <properties>
                         <property
@@ -491,9 +502,9 @@
                       cachedLength="50"
                       cachedName="RegistrationDate"
                       errorOrTruncationOperation="Computation"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[RegistrationDate]"
-                      truncationRowDisposition="IgnoreFailure"
+                      truncationRowDisposition="RedirectRow"
                       usageType="readWrite">
                       <properties>
                         <property
@@ -516,9 +527,9 @@
                       cachedLength="50"
                       cachedName="LastLoginDate"
                       errorOrTruncationOperation="Computation"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[LastLoginDate]"
-                      truncationRowDisposition="IgnoreFailure"
+                      truncationRowDisposition="RedirectRow"
                       usageType="readWrite">
                       <properties>
                         <property
@@ -541,9 +552,9 @@
                       cachedLength="50"
                       cachedName="PurchaseTotal"
                       errorOrTruncationOperation="Computation"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[PurchaseTotal]"
-                      truncationRowDisposition="IgnoreFailure"
+                      truncationRowDisposition="RedirectRow"
                       usageType="readWrite">
                       <properties>
                         <property
@@ -780,6 +791,1531 @@
               </outputs>
             </component>
             <component
+              refId="Package\Extract and Load to Staging\Error Log For Null Validation"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Error Log For Null Validation"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Error_Log_For_Null_Validation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">65001</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract and Load to Staging\Error Log For Null Validation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_Lymeng_Naret]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_Lymeng_Naret]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].Columns[UserID]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UserID"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[UserID]"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[UserID]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].Columns[FullName]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FullName"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[FullName]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].Columns[Age]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Age"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].Columns[RegistrationDate]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RegistrationDate"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].Columns[LastLoginDate]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastLoginDate"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[LastLoginDate]"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[LastLoginDate]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].Columns[PurchaseTotal]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PurchaseTotal"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTotal]"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[PurchaseTotal]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Outputs[Derived Column Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Outputs[Derived Column Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[UserID]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="UserID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[LastLoginDate]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="LastLoginDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTotal]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="PurchaseTotal" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract and Load to Staging\Error Log For Null Validation.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract and Load to Staging\Error Log For Null Validation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Null Validation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract and Load to Staging\Error Log For Null Validation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract and Load to Staging\Error Log For Src Extraction"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Error Log For Src Extraction"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Error_Log_For_Src_Extraction]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">65001</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract and Load to Staging\Error Log For Src Extraction.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_Lymeng_Naret]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_Lymeng_Naret]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract and Load to Staging\Error Log For Src Extraction.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Src Extraction.Inputs[OLE DB Destination Input].Columns[Flat File Source Error Output Column]"
+                      cachedCodepage="65001"
+                      cachedDataType="text"
+                      cachedName="Flat File Source Error Output Column"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Error Log For Src Extraction.Inputs[OLE DB Destination Input].ExternalColumns[Flat File Source Error Output Column]"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Src Extraction.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Error Log For Src Extraction.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Src Extraction.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Extract and Load to Staging\Error Log For Src Extraction.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Src Extraction.Inputs[OLE DB Destination Input].ExternalColumns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      name="Flat File Source Error Output Column" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Src Extraction.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Src Extraction.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract and Load to Staging\Error Log For Src Extraction.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extract and Load to Staging\Error Log For Src Extraction.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Src Extraction.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract and Load to Staging\Error Log For Src Extraction.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract and Load to Staging\Error Log For Src Extraction.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract and Load to Staging\Error Log For Src Extraction.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;13"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="Script - Replace &quot;null&quot;"
+              version="13">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+#endregion
+
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    #region Help:  Using Integration Services variables and parameters
+    /* To use a variable in this script, first ensure that the variable has been added to
+     * either the list contained in the ReadOnlyVariables property or the list contained in
+     * the ReadWriteVariables property of this script component, according to whether or not your
+     * code needs to write into the variable.  To do so, save this script, close this instance of
+     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
+     * Script Transformation Editor window.
+     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+     *
+     * Example of reading from a variable or parameter:
+     *  DateTime startTime = Variables.MyStartTime;
+     *
+     * Example of writing to a variable:
+     *  Variables.myStringVariable = "new value";
+     */
+    #endregion
+
+    #region Help:  Using Integration Services Connnection Managers
+    /* Some types of connection managers can be used in this script component.  See the help topic
+     * "Working with Connection Managers Programatically" for details.
+     *
+     * To use a connection manager in this script, first ensure that the connection manager has
+     * been added to either the list of connection managers on the Connection Managers page of the
+     * script component editor.  To add the connection manager, save this script, close this instance of
+     * Visual Studio, and add the Connection Manager to the list.
+     *
+     * If the component needs to hold a connection open while processing rows, override the
+     * AcquireConnections and ReleaseConnections methods.
+     * 
+     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
+     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
+     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
+     *
+     * Example of using a File connection manager to acquire a file path:
+     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
+     *  string filePath = (string)rawConnection;
+     *
+     * Example of releasing a connection manager:
+     *  Connections.SalesDB.ReleaseConnection(rawConnection);
+     */
+    #endregion
+
+    #region Help:  Firing Integration Services Events
+    /* This script component can fire events.
+     *
+     * Example of firing an error event:
+     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
+     *
+     * Example of firing an information event:
+     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
+     *
+     * Example of firing a warning event:
+     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
+     */
+    #endregion
+
+    /// <summary>
+    /// This method is called once, before rows begin to be processed in the data flow.
+    ///
+    /// You can remove this method if you don't need to do anything here.
+    /// </summary>
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called after all the rows have passed through this component.
+    ///
+    /// You can delete this method if you don't need to do anything here.
+    /// </summary>
+    public override void PostExecute()
+    {
+        base.PostExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called once for every row that passes through the component from Input0.
+    ///
+    /// Example of reading a value from a column in the the row:
+    ///  string zipCode = Row.ZipCode
+    ///
+    /// Example of writing a value to a column in the row:
+    ///  Row.ZipCode = zipCode
+    /// </summary>
+    /// <param name="Row">The row that is currently passing through the component</param>
+    public override void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+        // Replace "null" with empty string for each relevant column
+        if (!Row.Age_IsNull && Row.Age.ToString().Trim().ToLower() == "null")
+        {
+            Row.Age_IsNull = true;
+        }
+        if (!Row.UserID_IsNull && Row.UserID.ToString().Trim().ToLower() == "null")
+        {
+            Row.UserID_IsNull = true;
+        }
+        if (!Row.FullName_IsNull && Row.FullName.ToString().Trim().ToLower() == "null")
+        {
+            Row.FullName_IsNull = true;
+        }
+        if (!Row.Email_IsNull && Row.Email.ToString().Trim().ToLower() == "null")
+        {
+            Row.Email_IsNull = true;
+        }
+        if (!Row.RegistrationDate_IsNull && Row.RegistrationDate.ToString().Trim().ToLower() == "null")
+        {
+            Row.RegistrationDate_IsNull = true;
+        }
+        if (!Row.LastLoginDate_IsNull && Row.LastLoginDate.ToString().Trim().ToLower() == "null")
+        {
+            Row.LastLoginDate_IsNull = true;
+        }
+        if (!Row.PurchaseTotal_IsNull && Row.PurchaseTotal.ToString().Trim().ToLower() == "null")
+        {
+            Row.PurchaseTotal_IsNull = true;
+        }
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_6bf75374049f4f539436c4b0da92e18e.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{419aac77-e19b-4bac-89ef-3f2835e1ba06}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_6bf75374049f4f539436c4b0da92e18e</RootNamespace>
+    <AssemblyName>SC_6bf75374049f4f539436c4b0da92e18e</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptComponent" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptComponent" GeneratedNamespace="SC_6bf75374049f4f539436c4b0da92e18e" IconIndex="0"></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC160</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Input0Buffer: ScriptBuffer
+
+{
+    public Input0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String UserID
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[0]);
+        }
+        set
+        {
+            this[0] = value;
+        }
+    }
+    public bool UserID_IsNull
+    {
+        get
+        {
+            return IsNull(0);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(0);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String FullName
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[1]);
+        }
+        set
+        {
+            this[1] = value;
+        }
+    }
+    public bool FullName_IsNull
+    {
+        get
+        {
+            return IsNull(1);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(1);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String Age
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[2]);
+        }
+        set
+        {
+            this[2] = value;
+        }
+    }
+    public bool Age_IsNull
+    {
+        get
+        {
+            return IsNull(2);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(2);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String RegistrationDate
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[3]);
+        }
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool RegistrationDate_IsNull
+    {
+        get
+        {
+            return IsNull(3);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String Email
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[4]);
+        }
+        set
+        {
+            this[4] = value;
+        }
+    }
+    public bool Email_IsNull
+    {
+        get
+        {
+            return IsNull(4);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(4);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String LastLoginDate
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[5]);
+        }
+        set
+        {
+            this[5] = value;
+        }
+    }
+    public bool LastLoginDate_IsNull
+    {
+        get
+        {
+            return IsNull(5);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(5);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String PurchaseTotal
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[6]);
+        }
+        set
+        {
+            this[6] = value;
+        }
+    }
+    public bool PurchaseTotal_IsNull
+    {
+        get
+        {
+            return IsNull(6);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(6);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public bool NextRow()
+    {
+        return base.NextRow();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_6bf75374049f4f539436c4b0da92e18e.Properties.Settings.get_Default():SC_6bf75374049f4f539436c4b0da92e18e.Properties.Sett" +
+    "ings")]
+
+namespace SC_6bf75374049f4f539436c4b0da92e18e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
+    {
+
+        if (InputName.Equals(@"Input 0", StringComparison.Ordinal))
+        {
+            Input0_ProcessInput(new Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
+        }
+
+    }
+
+    public virtual void Input0_ProcessInput(Input0Buffer Buffer)
+    {
+        while (Buffer.NextRow())
+        {
+            Input0_ProcessInputRow(Buffer);
+        }
+    }
+
+    public virtual void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_6bf75374049f4f539436c4b0da92e18e</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_6bf75374049f4f539436c4b0da92e18e</msb:DisplayName>
+    <msb:ProjectId>{B39CCCCC-C1EF-47AA-9E3E-2F34A41C7996}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_6bf75374049f4f539436c4b0da92e18e.csproj" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_6bf75374049f4f539436c4b0da92e18e")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_6bf75374049f4f539436c4b0da92e18e")]
+[assembly: AssemblyCopyright("Copyright @  2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_6bf75374049f4f539436c4b0da92e18e.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_6bf75374049f4f539436c4b0da92e18e.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_6bf75374049f4f539436c4b0da92e18e.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_6bf75374049f4f539436c4b0da92e18e.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_6bf75374049f4f539436c4b0da92e18e.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_6bf75374049f4f539436c4b0da92e18e.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAHxooWYAAAAAAAAAAOAAIiALATAAABoAAAAIAAAAAAAArjgA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAFw4AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAtBgAAAAgAAAAGgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAcAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAIgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACQ
+OAAAAAAAAEgAAAACAAUAcCQAADQTAAABAAAAAAAAAKQ3AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBAAAAoqHgIoEQAACioTMAIAUQEAAAAAAAADbxAAAAYt
+KANvDgAABm8SAAAKbxMAAApvFAAACnIBAABwKBUAAAosBwMXbxEAAAYDbwgAAAYtKANvBgAABm8S
+AAAKbxMAAApvFAAACnIBAABwKBUAAAosBwMXbwkAAAYDbwwAAAYtKANvCgAABm8SAAAKbxMAAApv
+FAAACnIBAABwKBUAAAosBwMXbw0AAAYDbxgAAAYtKANvFgAABm8SAAAKbxMAAApvFAAACnIBAABw
+KBUAAAosBwMXbxkAAAYDbxQAAAYtKANvEgAABm8SAAAKbxMAAApvFAAACnIBAABwKBUAAAosBwMX
+bxUAAAYDbxwAAAYtKANvGgAABm8SAAAKbxMAAApvFAAACnIBAABwKBUAAAosBwMXbx0AAAYDbyAA
+AAYtKANvHgAABm8SAAAKbxMAAApvFAAACnIBAABwKBUAAAosBwMXbyEAAAYqHgIoJAAABioqAgME
+BSgWAAAKKlICexcAAAoCexgAAAoWlG8ZAAAKKiYCFgMoGgAACioiAhYoGwAACipaAywIAhYoHAAA
+CipyCwAAcHMdAAAKelICexcAAAoCexgAAAoXlG8ZAAAKKiYCFwMoGgAACioiAhcoGwAACipaAywI
+AhcoHAAACipyCwAAcHMdAAAKelICexcAAAoCexgAAAoYlG8ZAAAKKiYCGAMoGgAACioiAhgoGwAA
+CipaAywIAhgoHAAACipyCwAAcHMdAAAKelICexcAAAoCexgAAAoZlG8ZAAAKKiYCGQMoGgAACioi
+AhkoGwAACipaAywIAhkoHAAACipyCwAAcHMdAAAKelICexcAAAoCexgAAAoalG8ZAAAKKiYCGgMo
+GgAACioiAhooGwAACipaAywIAhooHAAACipyCwAAcHMdAAAKelICexcAAAoCexgAAAoblG8ZAAAK
+KiYCGwMoGgAACioiAhsoGwAACipaAywIAhsoHAAACipyCwAAcHMdAAAKelICexcAAAoCexgAAAoc
+lG8ZAAAKKiYCHAMoGgAACioiAhwoGwAACipaAywIAhwoHAAACipyCwAAcHMdAAAKeh4CKB4AAAoq
+HgIoHwAACip+AiggAAAKAgJzKAAABn0BAAAEAgJzKQAABn0CAAAEKpIEcqgAAHAabyEAAAosFQIF
+AgMoIgAACg4EcwUAAAZvJgAABipKKwcCA28nAAAGA28iAAAGLfEqBio6AigjAAAKAgN9AwAABCo6
+AigjAAAKAgN9BAAABCoeAigjAAAKKq5+BQAABC0ecrgAAHDQBwAAAigkAAAKbyUAAApzJgAACoAF
+AAAEfgUAAAQqGn4GAAAEKh4CgAYAAAQqGn4HAAAEKh4CKCcAAAoqLnMvAAAGgAcAAAQqAEJTSkIB
+AAEAAAAAAAwAAAB2NC4wLjMwMzE5AAAAAAUAbAAAAOAHAAAjfgAATAgAAAQIAAAjU3RyaW5ncwAA
+AABQEAAALAEAACNVUwB8EQAAEAAAACNHVUlEAAAAjBEAAKgBAAAjQmxvYgAAAAAAAAACAAABVxWg
+AQkBAAAA+gEzABYAAAEAAAAfAAAACAAAAAcAAAAwAAAAGwAAACcAAAAQAAAAAwAAABEAAAAgAAAA
+AQAAAAQAAAABAAAAAAC8AwEAAAAAAAYAcgIwBgYABgMwBgYAvgEdBg8ApAYAAAYA6wFqBQYAVQJq
+BQYANgJqBQYA7QJqBQYAkgJqBQYAqwJqBQYAAgJqBQYAHQJBAwoAxgK9AAoA5wW9AA4A2AW9AAoA
+swW9AAoAage9AAYALQcdBQYAoQEdBgYA+AVQBgYApwVVBRIAcQGSAxIA0gGSAxIACwFABQYAhgEw
+BgYAZwMdBQYAfAUdBQYAlgUdBQYA3gAdBQYAdQAdBQYA7wdqBQAAAAABAAAAAAABAAEAAQAQADUF
+AAAQAAEAAQABABAAywUAADkAAQAFAAEAEABMBwAARQABACQAAQAQACEHAABJAAMAKAABABAA4gYA
+AEkABAApAAAAEABXBrMGSQAFACoAAAEQABEHswZhAAcALgAGACEHfQAGAOIGgQABAFoHhQABAFoH
+hQARACkFiQARAPsAjQARAFUAkQBQIAAAAADGACQDBgABAFggAAAAAMYALwMGAAEAYCAAAAAAxgDM
+B5UAAQC9IQAAAACGGBAGBgACAMUhAAAAAIYYEAYlAAIA0CEAAAAAhggKABsABQDlIQAAAACGCBUA
+EAAFAO8hAAAAAIYI5ANHAAYA+CEAAAAAhgj2A5sABgAPIgAAAACGCJkAGwAHACQiAAAAAIYIpgAQ
+AAcALiIAAAAAhggmBEcACAA3IgAAAACGCDoEmwAIAE4iAAAAAIYIZQAbAAkAYyIAAAAAhghtABAA
+CQBtIgAAAACGCAgERwAKAHYiAAAAAIYIFwSbAAoAjSIAAAAAhghHARsACwCiIgAAAACGCFwBEAAL
+AKwiAAAAAIYIgARHAAwAtSIAAAAAhgicBJsADADMIgAAAACGCKgDGwANAOEiAAAAAIYIsgMQAA0A
+6yIAAAAAhgjqBEcADgD0IgAAAACGCPsEmwAOAAsjAAAAAIYIIwEbAA8AICMAAAAAhgg1ARAADwAq
+IwAAAACGCE4ERwAQADMjAAAAAIYIZwSbABAASiMAAAAAhghuAxsAEQBfIwAAAACGCIADEAARAGkj
+AAAAAIYIuARHABIAciMAAAAAhgjRBJsAEgCJIwAAAACGAOMHRwATAJEjAAAAAIYANAdHABMAmSMA
+AAAAhhgQBgYAEwC5IwAAAADGAL8HoAATAN4jAAAAAMYBuAeVABcA8SMAAAAAxgHMB5UAGADzIwAA
+AACGGBAGqgAZAAIkAAAAAIYYEAaqABoAESQAAAAAgxgQBgYAGwAZJAAAAACTCPQFsAAbAEUkAAAA
+AJMI4wC1ABsATCQAAAAAkwjvALoAGwBUJAAAAACWCEAHwAAcAFskAAAAAIYYEAYGABwAYyQAAAAA
+kRgWBsUAHAAAAAEA5wcAAAEA7QUAAAIA7AYAAAMAwQUAAAEAOwMAAAEAOwMAAAEAOwMAAAEAOwMA
+AAEAOwMAAAEAOwMAAAEAOwMAAAEAOwMAAAEAOwMAAAEAOwMAAAEAOwMAAAEAOwMAAAEAOwMAAAEA
+OwMAAAEAIAAAAAIAswAAAAMA7QUAAAQAwQUAAAEA7QUAAAEA5wcAAAEAcAcAAAEAcAcAAAEAOwMJ
+ABAGAQARABAGBgAZABAGCgApABAGEAAxABAGEAA5ABAGEABBABAGEABJABAGEABRABAGEABZABAG
+EABhABAGEABpABAGBgCZABAGBgC5ABAGFQDJABAGBgCJACQDBgCJAC8DBgCRAFsDGwDRACQFGwDR
+AAgGGwDRAPgHHwBxABAGJQBxAO0FLwBxAOwGMwB5AGQDNwBxABQFPABxAAUFQgBxAAwFAQDZABAG
+EABxAOMHRwBxADQHRwCJABAGBgDRABoHSwCJAAAHUgCRABAGBgDpAIcAWADpAOsHXwChABAGZADB
+ABAGBgAuAAsA4AAuABMA6QAuABsACAEuACMAEQEuACsAOgEuADMAOgEuADsAOgEuAEMAEQEuAEsA
+QAEuAFMAOgEuAFsAVwFDAGMAoQHhAHsAoQHjAGsAoQHpAXMACAEJAnMACAEDAAEABwAPAAgAEQAA
+ABkAyQAAAPoDzQAAAKoAyQAAAD4EzQAAAHEAyQAAABsEzQAAAGAByQAAAKAEzQAAALYDyQAAAP8E
+zQAAADkByQAAAGsEzQAAAIQDyQAAANUEzQAAAPgF0QAAAAMB1gAAAEQH2wACAAYAAwABAAcAAwAC
+AAgABQABAAkABQACAAoABwABAAsABwACAAwACQABAA0ACQACAA4ACwABAA8ACwACABAADQABABEA
+DQACABIADwABABMADwACABQAEQABABUAEQACABYAEwABABcAEwACABgAFQABABkAFQACABoAFwAB
+ABsAFwACABwAGQABAB0AGQACAB4AGwABAB8AGwACACAAHQABACEAHQACACsAHwACACwAIQABAC0A
+IQACAC4AIwAEgAAAAQAAAAAAAAAAAAAAAAAxAAAABAAAAAAAAAAAAAAAawAoAAAAAAAQAAAAAAAA
+AAAAAAB0AHoHAAAAABAAAAAAAAAAAAAAAHQAlwcAAAAABAAAAAAAAAAAAAAAawAdBQAAAAAAAAAA
+AQAAAGEGAAAAAAA8TW9kdWxlPgBnZXRfVXNlcklEAHNldF9Vc2VySUQASW5wdXRJRABtc2Nvcmxp
+YgBTQ182YmY3NTM3NDA0OWY0ZjUzOTQzNmM0YjBkYTkyZTE4ZQBkZWZhdWx0SW5zdGFuY2UAZ2V0
+X0FnZQBzZXRfQWdlAFJ1bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAGdldF9GdWxs
+TmFtZQBzZXRfRnVsbE5hbWUASW5wdXROYW1lAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlBpcGVs
+aW5lAFR5cGUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAEFwcGxpY2F0
+aW9uU2V0dGluZ3NCYXNlAGdldF9MYXN0TG9naW5EYXRlAHNldF9MYXN0TG9naW5EYXRlAGdldF9S
+ZWdpc3RyYXRpb25EYXRlAHNldF9SZWdpc3RyYXRpb25EYXRlAEVkaXRvckJyb3dzYWJsZVN0YXRl
+AENvbXBpbGVyR2VuZXJhdGVkQXR0cmlidXRlAERlYnVnZ2VyTm9uVXNlckNvZGVBdHRyaWJ1dGUA
+RGVidWdnYWJsZUF0dHJpYnV0ZQBFZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUAQXNzZW1ibHlUaXRs
+ZUF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFya0F0dHJpYnV0ZQBUYXJnZXRGcmFtZXdvcmtBdHRy
+aWJ1dGUAQXNzZW1ibHlDb25maWd1cmF0aW9uQXR0cmlidXRlAEFzc2VtYmx5RGVzY3JpcHRpb25B
+dHRyaWJ1dGUAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJpYnV0ZQBBc3NlbWJseVByb2R1Y3RB
+dHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUAU1NJU1NjcmlwdENvbXBvbmVudEVu
+dHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRp
+YmlsaXR5QXR0cmlidXRlAFByZUV4ZWN1dGUAUG9zdEV4ZWN1dGUAdmFsdWUAU3lzdGVtLlJ1bnRp
+bWUuVmVyc2lvbmluZwBUb1N0cmluZwBHZXRTdHJpbmcAZ2V0X1B1cmNoYXNlVG90YWwAc2V0X1B1
+cmNoYXNlVG90YWwAU3lzdGVtLkNvbXBvbmVudE1vZGVsAGdldF9FbWFpbABzZXRfRW1haWwAU0Nf
+NmJmNzUzNzQwNDlmNGY1Mzk0MzZjNGIwZGE5MmUxOGUuZGxsAGdldF9Vc2VySURfSXNOdWxsAHNl
+dF9Vc2VySURfSXNOdWxsAGdldF9BZ2VfSXNOdWxsAHNldF9BZ2VfSXNOdWxsAGdldF9GdWxsTmFt
+ZV9Jc051bGwAc2V0X0Z1bGxOYW1lX0lzTnVsbABnZXRfTGFzdExvZ2luRGF0ZV9Jc051bGwAc2V0
+X0xhc3RMb2dpbkRhdGVfSXNOdWxsAGdldF9SZWdpc3RyYXRpb25EYXRlX0lzTnVsbABzZXRfUmVn
+aXN0cmF0aW9uRGF0ZV9Jc051bGwAZ2V0X1B1cmNoYXNlVG90YWxfSXNOdWxsAHNldF9QdXJjaGFz
+ZVRvdGFsX0lzTnVsbABnZXRfRW1haWxfSXNOdWxsAHNldF9FbWFpbF9Jc051bGwAU2V0TnVsbABz
+ZXRfSXRlbQBTeXN0ZW0AVHJpbQByZXNvdXJjZU1hbgBTY3JpcHRNYWluAFN5c3RlbS5Db25maWd1
+cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9uAFN5c3RlbS5SZWZsZWN0aW9uAEludmFsaWRPcGVy
+YXRpb25FeGNlcHRpb24AU3RyaW5nQ29tcGFyaXNvbgBDdWx0dXJlSW5mbwBPdXRwdXROYW1lTWFw
+AE91dHB1dE1hcABJbnB1dDBCdWZmZXIAUGlwZWxpbmVCdWZmZXIAU2NyaXB0QnVmZmVyAGdldF9S
+ZXNvdXJjZU1hbmFnZXIAVG9Mb3dlcgAuY3RvcgAuY2N0b3IAU3lzdGVtLkRpYWdub3N0aWNzAFN5
+c3RlbS5SdW50aW1lLkNvbXBpbGVyU2VydmljZXMAU3lzdGVtLlJlc291cmNlcwBTQ182YmY3NTM3
+NDA0OWY0ZjUzOTQzNmM0YjBkYTkyZTE4ZS5Qcm9wZXJ0aWVzLlJlc291cmNlcy5yZXNvdXJjZXMA
+RGVidWdnaW5nTW9kZXMAU0NfNmJmNzUzNzQwNDlmNGY1Mzk0MzZjNGIwZGE5MmUxOGUuUHJvcGVy
+dGllcwBWYXJpYWJsZXMAQnVmZmVyQ29sdW1uSW5kZXhlcwBHZXRDb2x1bW5JbmRleGVzAFNldHRp
+bmdzAEVxdWFscwBDb25uZWN0aW9ucwBPYmplY3QARW5kT2ZSb3dzZXQAZ2V0X0RlZmF1bHQAVXNl
+ckNvbXBvbmVudABQYXJlbnRDb21wb25lbnQAU2NyaXB0Q29tcG9uZW50AE1pY3Jvc29mdC5TcWxT
+ZXJ2ZXIuVHhTY3JpcHQATWljcm9zb2Z0LlNxbFNlcnZlci5QaXBlbGluZUhvc3QASW5wdXQwX1By
+b2Nlc3NJbnB1dABJbnB1dDBfUHJvY2Vzc0lucHV0Um93AE5leHRSb3cAZ2V0X0Fzc2VtYmx5AG9w
+X0VxdWFsaXR5AAAJbgB1AGwAbAAAgJtJAHMATgB1AGwAbAAgAHAAcgBvAHAAZQByAHQAeQAgAGMA
+YQBuAG4AbwB0ACAAYgBlACAAcwBlAHQAIAB0AG8AIABGAGEAbABzAGUALgAgAEEAcwBzAGkAZwBu
+ACAAYQAgAHYAYQBsAHUAZQAgAHQAbwAgAHQAaABlACAAYwBvAGwAdQBtAG4AIABpAG4AcwB0AGUA
+YQBkAC4AAA9JAG4AcAB1AHQAIAAwAABxUwBDAF8ANgBiAGYANwA1ADMANwA0ADAANAA5AGYANABm
+ADUAMwA5ADQAMwA2AGMANABiADAAZABhADkAMgBlADEAOABlAC4AUAByAG8AcABlAHIAdABpAGUA
+cwAuAFIAZQBzAG8AdQByAGMAZQBzAAAAANYM1OWmxiZDiVVr7RDhmcAABCABAQgDIAABBSABARER
+BCABAQ4FIAEBEVkDIAAOBQACAg4OCSADARI9HQgSQQMGEj0DBh0IBCABDggFIAIBCBwEIAECCAMg
+AAIGIAICDhFxBSABHQgIBgABEnUReQQgABJ9BiACAQ4SfQi3elxWGTTgiQiJhF3NgIDMkQMGEhQD
+BhIYAwYSRQMGElEDBhJVAwYSIAUgAQESDAQgAQECCSAEAQgOEj0SQQUgAQESRQQAABJRBAAAElUF
+AAEBElUEAAASIAMAAAEDKAAOAygAAgQIABJRBAgAElUECAASIAgBAAgAAAAAAB4BAAEAVAIWV3Jh
+cE5vbkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU0NfNmJmNzUzNzQwNDlmNGY1Mzk0MzZj
+NGIwZGE5MmUxOGUAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAyNAAASQEAGi5ORVRGcmFtZXdv
+cmssVmVyc2lvbj12NC43AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFtZRIuTkVUIEZyYW1ld29yayA0
+LjcEAQAAAAAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVy
+LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
+a2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQC
+AAAAAAAAAAAAAABQQURQQURQtAAAAIQ4AAAAAAAAAAAAAJ44AAAAIAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAACQOAAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAA
+AFhAAADsAwAAAAAAAAAAAADsAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAA
+vQTv/gAAAQAAAAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAAB
+AFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAA
+AAAAALAETAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAKAMAAAEAMAAwADAAMAAw
+ADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBuAHkA
+TgBhAG0AZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABT
+AEMAXwA2AGIAZgA3ADUAMwA3ADQAMAA0ADkAZgA0AGYANQAzADkANAAzADYAYwA0AGIAMABkAGEA
+OQAyAGUAMQA4AGUAAAAwAAgAAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4AMAAu
+ADAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAQwBfADYAYgBmADcANQAzADcA
+NAAwADQAOQBmADQAZgA1ADMAOQA0ADMANgBjADQAYgAwAGQAYQA5ADIAZQAxADgAZQAuAGQAbABs
+AAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBoAHQA
+IABAACAAIAAyADAAMgA0AAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMAAAAA
+AAAAAAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8ANgBiAGYA
+NwA1ADMANwA0ADAANAA5AGYANABmADUAMwA5ADQAMwA2AGMANABiADAAZABhADkAMgBlADEAOABl
+AC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfADYAYgBmADcA
+NQAzADcANAAwADQAOQBmADQAZgA1ADMAOQA0ADMANgBjADQAYgAwAGQAYQA5ADIAZQAxADgAZQAA
+ADQACAABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAA4AAgA
+AQBBAHMAcwBlAG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAAsDgAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_6bf75374049f4f539436c4b0da92e18e</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">12</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;.Inputs[Input 0].Columns[UserID]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UserID"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[UserID]"
+                      usageType="readWrite" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;.Inputs[Input 0].Columns[FullName]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FullName"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[FullName]"
+                      usageType="readWrite" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;.Inputs[Input 0].Columns[Age]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Age"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Age]"
+                      usageType="readWrite" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;.Inputs[Input 0].Columns[RegistrationDate]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RegistrationDate"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                      usageType="readWrite" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;.Inputs[Input 0].Columns[Email]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Email"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Email]"
+                      usageType="readWrite" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;.Inputs[Input 0].Columns[LastLoginDate]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastLoginDate"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[LastLoginDate]"
+                      usageType="readWrite" />
+                    <inputColumn
+                      refId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;.Inputs[Input 0].Columns[PurchaseTotal]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PurchaseTotal"
+                      lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[PurchaseTotal]"
+                      usageType="readWrite" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;.Outputs[Output 0]"
+                  name="Output 0"
+                  synchronousInputId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;.Inputs[Input 0]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Extract and Load to Staging\Source Data"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -815,12 +2351,12 @@
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[UserID]"
                       length="50"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[UserID]"
                       name="UserID"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -837,12 +2373,12 @@
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[FullName]"
                       length="50"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[FullName]"
                       name="FullName"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -859,12 +2395,12 @@
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[Age]"
                       length="50"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Age]"
                       name="Age"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -881,12 +2417,12 @@
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[Email]"
                       length="50"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[Email]"
                       name="Email"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -903,12 +2439,12 @@
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
                       length="50"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[RegistrationDate]"
                       name="RegistrationDate"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -925,12 +2461,12 @@
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[LastLoginDate]"
                       length="50"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[LastLoginDate]"
                       name="LastLoginDate"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -947,12 +2483,12 @@
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       externalMetadataColumnId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].ExternalColumns[PurchaseTotal]"
                       length="50"
                       lineageId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output].Columns[PurchaseTotal]"
                       name="PurchaseTotal"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -1048,15 +2584,30 @@
               name="Data Conversion Output"
               startId="Package\Extract and Load to Staging\Data Conversion.Outputs[Data Conversion Output]" />
             <path
+              refId="Package\Extract and Load to Staging.Paths[Derived Column Error Output]"
+              endId="Package\Extract and Load to Staging\Error Log For Null Validation.Inputs[OLE DB Destination Input]"
+              name="Derived Column Error Output"
+              startId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Outputs[Derived Column Error Output]" />
+            <path
               refId="Package\Extract and Load to Staging.Paths[Derived Column Output]"
               endId="Package\Extract and Load to Staging\Data Conversion.Inputs[Data Conversion Input]"
               name="Derived Column Output"
               startId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Outputs[Derived Column Output]" />
             <path
+              refId="Package\Extract and Load to Staging.Paths[Flat File Source Error Output]"
+              endId="Package\Extract and Load to Staging\Error Log For Src Extraction.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Error Output"
+              startId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Error Output]" />
+            <path
               refId="Package\Extract and Load to Staging.Paths[Flat File Source Output]"
-              endId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input]"
+              endId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;.Inputs[Input 0]"
               name="Flat File Source Output"
               startId="Package\Extract and Load to Staging\Source Data.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Extract and Load to Staging.Paths[Output 0]"
+              endId="Package\Extract and Load to Staging\Derived Column - Null Validation (Success).Inputs[Derived Column Input]"
+              name="Output 0"
+              startId="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;.Outputs[Output 0]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2017,6 +3568,213 @@ WHERE UserID = ?
           version="1">
           <components>
             <component
+              refId="Package\Transform - Error Handling\Error Log For Conditional Split"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Error Log For Conditional Split"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Error_Log_For_Conditional_Split]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transform - Error Handling\Error Log For Conditional Split.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_Lymeng_Naret]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_Lymeng_Naret]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].Columns[StgID]"
+                      cachedDataType="i4"
+                      cachedName="StgID"
+                      externalMetadataColumnId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[StgID]"
+                      lineageId="Package\Transform - Error Handling\OLE DB Source - Users.Outputs[OLE DB Source Output].Columns[StgID]" />
+                    <inputColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].Columns[UserID]"
+                      cachedDataType="i4"
+                      cachedName="UserID"
+                      externalMetadataColumnId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[UserID]"
+                      lineageId="Package\Transform - Error Handling\OLE DB Source - Users.Outputs[OLE DB Source Output].Columns[UserID]" />
+                    <inputColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].Columns[FullName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FullName"
+                      externalMetadataColumnId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      lineageId="Package\Transform - Error Handling\OLE DB Source - Users.Outputs[OLE DB Source Output].Columns[FullName]" />
+                    <inputColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].Columns[Age]"
+                      cachedDataType="i4"
+                      cachedName="Age"
+                      externalMetadataColumnId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\Transform - Error Handling\OLE DB Source - Users.Outputs[OLE DB Source Output].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Transform - Error Handling\OLE DB Source - Users.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].Columns[RegistrationDate]"
+                      cachedDataType="dbDate"
+                      cachedName="RegistrationDate"
+                      externalMetadataColumnId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\Transform - Error Handling\OLE DB Source - Users.Outputs[OLE DB Source Output].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].Columns[LastLoginDate]"
+                      cachedDataType="dbDate"
+                      cachedName="LastLoginDate"
+                      externalMetadataColumnId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[LastLoginDate]"
+                      lineageId="Package\Transform - Error Handling\OLE DB Source - Users.Outputs[OLE DB Source Output].Columns[LastLoginDate]" />
+                    <inputColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].Columns[PurchaseTotal]"
+                      cachedDataType="r8"
+                      cachedName="PurchaseTotal"
+                      externalMetadataColumnId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTotal]"
+                      lineageId="Package\Transform - Error Handling\OLE DB Source - Users.Outputs[OLE DB Source Output].Columns[PurchaseTotal]" />
+                    <inputColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Transform - Error Handling\Handle Errors.Outputs[Conditional Split Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Transform - Error Handling\Handle Errors.Outputs[Conditional Split Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[StgID]"
+                      dataType="i4"
+                      name="StgID" />
+                    <externalMetadataColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[UserID]"
+                      dataType="i4"
+                      name="UserID" />
+                    <externalMetadataColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      dataType="wstr"
+                      length="255"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      dataType="i4"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="255"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                      dataType="dbDate"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[LastLoginDate]"
+                      dataType="dbDate"
+                      name="LastLoginDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTotal]"
+                      dataType="r8"
+                      name="PurchaseTotal" />
+                    <externalMetadataColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transform - Error Handling\Error Log For Conditional Split.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transform - Error Handling\Error Log For Conditional Split.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transform - Error Handling\Error Log For Conditional Split.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transform - Error Handling\Error Log For Conditional Split.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Transform - Error Handling\Handle Errors"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -2075,11 +3833,11 @@ WHERE UserID = ?
                   refId="Package\Transform - Error Handling\Handle Errors.Outputs[Null_UserID]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Null_UserID"
                   synchronousInputId="Package\Transform - Error Handling\Handle Errors.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
+                  truncationRowDisposition="RedirectRow">
                   <properties>
                     <property
                       containsID="true"
@@ -2103,11 +3861,11 @@ WHERE UserID = ?
                   refId="Package\Transform - Error Handling\Handle Errors.Outputs[Null_RegDate]"
                   description="Output 3 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Null_RegDate"
                   synchronousInputId="Package\Transform - Error Handling\Handle Errors.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
+                  truncationRowDisposition="RedirectRow">
                   <properties>
                     <property
                       containsID="true"
@@ -2131,11 +3889,11 @@ WHERE UserID = ?
                   refId="Package\Transform - Error Handling\Handle Errors.Outputs[Null_Name]"
                   description="Output 6 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Null_Name"
                   synchronousInputId="Package\Transform - Error Handling\Handle Errors.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
+                  truncationRowDisposition="RedirectRow">
                   <properties>
                     <property
                       containsID="true"
@@ -2159,11 +3917,11 @@ WHERE UserID = ?
                   refId="Package\Transform - Error Handling\Handle Errors.Outputs[Null_Email]"
                   description="Output 11 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Null_Email"
                   synchronousInputId="Package\Transform - Error Handling\Handle Errors.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
+                  truncationRowDisposition="RedirectRow">
                   <properties>
                     <property
                       containsID="true"
@@ -2187,11 +3945,11 @@ WHERE UserID = ?
                   refId="Package\Transform - Error Handling\Handle Errors.Outputs[Bad_Age]"
                   description="Output 2 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Bad_Age"
                   synchronousInputId="Package\Transform - Error Handling\Handle Errors.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
+                  truncationRowDisposition="RedirectRow">
                   <properties>
                     <property
                       containsID="true"
@@ -2215,11 +3973,11 @@ WHERE UserID = ?
                   refId="Package\Transform - Error Handling\Handle Errors.Outputs[Bad_Total]"
                   description="Output 4 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Bad_Total"
                   synchronousInputId="Package\Transform - Error Handling\Handle Errors.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
+                  truncationRowDisposition="RedirectRow">
                   <properties>
                     <property
                       containsID="true"
@@ -2243,11 +4001,11 @@ WHERE UserID = ?
                   refId="Package\Transform - Error Handling\Handle Errors.Outputs[Bad_LoginDate]"
                   description="Output 10 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Bad_LoginDate"
                   synchronousInputId="Package\Transform - Error Handling\Handle Errors.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
+                  truncationRowDisposition="RedirectRow">
                   <properties>
                     <property
                       containsID="true"
@@ -2271,11 +4029,11 @@ WHERE UserID = ?
                   refId="Package\Transform - Error Handling\Handle Errors.Outputs[Bad_RegDate]"
                   description="Output 9 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Bad_RegDate"
                   synchronousInputId="Package\Transform - Error Handling\Handle Errors.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
+                  truncationRowDisposition="RedirectRow">
                   <properties>
                     <property
                       containsID="true"
@@ -2299,11 +4057,11 @@ WHERE UserID = ?
                   refId="Package\Transform - Error Handling\Handle Errors.Outputs[Bad_Date_Reg_After]"
                   description="Output 8 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Bad_Date_Reg_After"
                   synchronousInputId="Package\Transform - Error Handling\Handle Errors.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
+                  truncationRowDisposition="RedirectRow">
                   <properties>
                     <property
                       containsID="true"
@@ -2327,11 +4085,11 @@ WHERE UserID = ?
                   refId="Package\Transform - Error Handling\Handle Errors.Outputs[Bad_Email]"
                   description="Output 5 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Bad_Email"
                   synchronousInputId="Package\Transform - Error Handling\Handle Errors.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
+                  truncationRowDisposition="RedirectRow">
                   <properties>
                     <property
                       containsID="true"
@@ -4045,6 +5803,11 @@ WHERE UserID = ?
               name="Bad_RegDate"
               startId="Package\Transform - Error Handling\Handle Errors.Outputs[Bad_RegDate]" />
             <path
+              refId="Package\Transform - Error Handling.Paths[Conditional Split Error Output]"
+              endId="Package\Transform - Error Handling\Error Log For Conditional Split.Inputs[OLE DB Destination Input]"
+              name="Conditional Split Error Output"
+              startId="Package\Transform - Error Handling\Handle Errors.Outputs[Conditional Split Error Output]" />
+            <path
               refId="Package\Transform - Error Handling.Paths[Neg_Age]"
               endId="Package\Transform - Error Handling\Union All.Inputs[Union All Input 3]"
               name="Neg_Age"
@@ -4284,26 +6047,44 @@ WHERE UserID = ?
     design-time-name="Package\Extract and Load to Staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="140,42"
-          Id="Package\Extract and Load to Staging\Source Data"
-          TopLeft="389,28" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="161,42"
           Id="Package\Extract and Load to Staging\Data Conversion"
-          TopLeft="75,141" />
+          TopLeft="75,206" />
         <NodeLayout
           Size="290,42"
           Id="Package\Extract and Load to Staging\Derived Column - Null Validation (Success)"
-          TopLeft="317,144" />
+          TopLeft="338,212" />
         <NodeLayout
           Size="174,42"
           Id="Package\Extract and Load to Staging\Destination Staging"
-          TopLeft="66.5,263.5" />
+          TopLeft="66.5,328.5" />
+        <EdgeLayout
+          Id="Package\Extract and Load to Staging.Paths[Derived Column Output]"
+          TopLeft="338,230">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-102,0"
+              Start="0,0"
+              End="-94.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-94.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Extract and Load to Staging.Paths[Data Conversion Output]"
-          TopLeft="154.5,183">
+          TopLeft="154.5,248">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4323,20 +6104,96 @@ WHERE UserID = ?
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Extract and Load to Staging\Error Log For Null Validation"
+          TopLeft="370,332" />
         <EdgeLayout
-          Id="Package\Extract and Load to Staging.Paths[Flat File Source Output]"
-          TopLeft="460.5,70">
+          Id="Package\Extract and Load to Staging.Paths[Derived Column Error Output]"
+          TopLeft="481,254">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,74"
+              EndConnector="0,78"
               Start="0,0"
-              End="0,66.5">
+              End="0,70.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,66.5" />
+                    End="0,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-64.96138671875,29.4453125,129.9227734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Extract and Load to Staging\Source Data"
+          TopLeft="385,14" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Extract and Load to Staging\Error Log For Src Extraction"
+          TopLeft="98,92" />
+        <EdgeLayout
+          Id="Package\Extract and Load to Staging.Paths[Flat File Source Error Output]"
+          TopLeft="433,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-227.5,36"
+              Start="0,0"
+              End="-227.5,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.6440677966102" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.6440677966102"
+                    Point2="0,14.6440677966102"
+                    Point3="-4,14.6440677966102" />
+                  <mssgle:LineSegment
+                    End="-223.5,14.6440677966102" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-223.5,14.6440677966102"
+                    Point2="-227.5,14.6440677966102"
+                    Point3="-227.5,18.6440677966102" />
+                  <mssgle:LineSegment
+                    End="-227.5,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-177.37638671875,19.6440677966102,127.2527734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Extract and Load to Staging\Script - Replace &quot;null&quot;"
+          TopLeft="388,102" />
+        <EdgeLayout
+          Id="Package\Extract and Load to Staging.Paths[Flat File Source Output]"
+          TopLeft="478.75,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4346,19 +6203,19 @@ WHERE UserID = ?
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Extract and Load to Staging.Paths[Derived Column Output]"
-          TopLeft="317,163.5">
+          Id="Package\Extract and Load to Staging.Paths[Output 0]"
+          TopLeft="481.75,144">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-81,0"
+              EndConnector="0,68"
               Start="0,0"
-              End="-73.5,0">
+              End="0,60.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-73.5,0" />
+                    End="0,60.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4459,7 +6316,9 @@ WHERE UserID = ?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4554,7 +6413,7 @@ WHERE UserID = ?
     design-time-name="Package\Transform - Error Handling">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="195,42"
           Id="Package\Transform - Error Handling\OLE DB Source - Users"
@@ -4562,41 +6421,29 @@ WHERE UserID = ?
         <NodeLayout
           Size="123,42"
           Id="Package\Transform - Error Handling\Union All"
-          TopLeft="204,312" />
+          TopLeft="218,315" />
         <NodeLayout
           Size="147,42"
           Id="Package\Transform - Error Handling\Handle Errors"
-          TopLeft="193,189" />
+          TopLeft="210,187" />
         <NodeLayout
           Size="252,42"
           Id="Package\Transform - Error Handling\OLE DB Destination - Users_Errors"
-          TopLeft="174,442" />
+          TopLeft="151,439" />
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Union All Output 1]"
-          TopLeft="265.5,354">
+          TopLeft="278.25,357">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="34.5,88"
+              EndConnector="0,82"
               Start="0,0"
-              End="34.5,80.5">
+              End="0,74.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40"
-                    Point2="0,44"
-                    Point3="4,44" />
-                  <mssgle:LineSegment
-                    End="30.5,44" />
-                  <mssgle:CubicBezierSegment
-                    Point1="30.5,44"
-                    Point2="34.5,44"
-                    Point3="34.5,48" />
-                  <mssgle:LineSegment
-                    End="34.5,80.5" />
+                    End="0,74.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4607,30 +6454,18 @@ WHERE UserID = ?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[OLE DB Source Output]"
-          TopLeft="279.5,117">
+          TopLeft="281.5,117">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13,72"
+              EndConnector="0,70"
               Start="0,0"
-              End="-13,64.5">
+              End="0,62.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32"
-                    Point2="0,36"
-                    Point3="-4,36" />
-                  <mssgle:LineSegment
-                    End="-9,36" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9,36"
-                    Point2="-13,36"
-                    Point3="-13,40" />
-                  <mssgle:LineSegment
-                    End="-13,64.5" />
+                    End="0,62.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4641,241 +6476,281 @@ WHERE UserID = ?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Null_UserID]"
-          TopLeft="266,231">
+          TopLeft="281.5,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,73.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-26.8162109375,31.21875,53.632421875,11.0625"
+              BoundingBox="-26.8162109375,33.71875,53.632421875,11.0625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Null_RegDate]"
-          TopLeft="266,231">
+          TopLeft="281.5,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,73.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-30.46134765625,30.91845703125,60.9226953125,11.6630859375"
+              BoundingBox="-30.46134765625,33.41845703125,60.9226953125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Null_Name]"
-          TopLeft="266,231">
+          TopLeft="281.5,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,73.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-24.43634765625,31.21875,48.8726953125,11.0625"
+              BoundingBox="-24.43634765625,33.71875,48.8726953125,11.0625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Null_Email]"
-          TopLeft="266,231">
+          TopLeft="281.5,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,73.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-23.35212890625,31.21875,46.7042578125,11.0625"
+              BoundingBox="-23.35212890625,33.71875,46.7042578125,11.0625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Neg_Total]"
-          TopLeft="266,231">
+          TopLeft="281.5,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,73.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-22.42712890625,31.21875,44.8542578125,11.0625"
+              BoundingBox="-22.42712890625,33.71875,44.8542578125,11.0625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Neg_Age]"
-          TopLeft="266,231">
+          TopLeft="281.5,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,73.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-19.96134765625,30.91845703125,39.9226953125,11.6630859375"
+              BoundingBox="-19.96134765625,33.41845703125,39.9226953125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Bad_RegDate]"
-          TopLeft="266,231">
+          TopLeft="281.5,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,73.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-30.38134765625,30.91845703125,60.7626953125,11.6630859375"
+              BoundingBox="-30.38134765625,33.41845703125,60.7626953125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Bad_LoginDate]"
-          TopLeft="266,231">
+          TopLeft="281.5,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,73.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-33.78634765625,30.91845703125,67.5726953125,11.6630859375"
+              BoundingBox="-33.78634765625,33.41845703125,67.5726953125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Bad_Email]"
-          TopLeft="266,231">
+          TopLeft="281.5,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,73.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-23.27212890625,31.21875,46.5442578125,11.0625"
+              BoundingBox="-23.27212890625,33.71875,46.5442578125,11.0625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transform - Error Handling.Paths[Bad_Date_Reg_After]"
-          TopLeft="266,231">
+          TopLeft="281.5,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,73.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-46.63869140625,30.89404296875,93.2773828125,11.7119140625"
+              BoundingBox="-46.63869140625,33.39404296875,93.2773828125,11.7119140625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Transform - Error Handling\Error Log For Conditional Split"
+          TopLeft="464,293" />
+        <EdgeLayout
+          Id="Package\Transform - Error Handling.Paths[Conditional Split Error Output]"
+          TopLeft="306.666666666667,229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="270.833333333333,64"
+              Start="0,0"
+              End="270.833333333333,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.0134589502019" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.0134589502019"
+                    Point2="0,26.0134589502019"
+                    Point3="4,26.0134589502019" />
+                  <mssgle:LineSegment
+                    End="266.833333333333,26.0134589502019" />
+                  <mssgle:CubicBezierSegment
+                    Point1="266.833333333333,26.0134589502019"
+                    Point2="270.833333333333,26.0134589502019"
+                    Point3="270.833333333333,30.0134589502019" />
+                  <mssgle:LineSegment
+                    End="270.833333333333,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="69.7227604166667,31.0134589502019,131.3878125,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4897,6 +6772,45 @@ WHERE UserID = ?
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Transform - Error Handling\OLE DB Destination - Users_Errors">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract and Load to Staging\Error Log For Null Validation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract and Load to Staging\Error Log For Src Extraction">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform - Error Handling\Error Log For Conditional Split">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

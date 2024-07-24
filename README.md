@@ -47,18 +47,19 @@
      - Set the file path to the CSV file.
      - Ensure column names in the first data row are checked.
      - All columns initially read as `DT_STR` (string).
+     - I chose to use Flat File Source because we need to handle a CSV File, and in order to keep consistent between an empty field and a field with the string "null," I added a script to make them the same.
 
 2. **Derived Column Transformation - Null Validation**:
 
    - **Configuration**:
-     - For each column, set an expression to handle null values or invalid data.
+     - For each column, set an expression to check if data conversion is possible or not.
      - Examples:
        - `UserID`: `(DT_I4)UserID == (DT_I4)UserID ? (DT_I4)UserID : NULL(DT_I4)`
 
 3. **Data Conversion Transformation**: converts columns to appropriate data types.
 
    - **Configuration**:
-     - Convert each column from `DT_STR` to the required data type.
+     - Convert each column from `DT_STR` to an appropriate data type.
      - Examples:
        - `UserID`: `four-byte signed integer [DT_I4]`
 
@@ -66,17 +67,6 @@
    - **Configuration**:
      - Set the destination table to `stg.Users`.
      - Map the columns from the data conversion output to the staging table columns.
-
-#### To Be Done: Error Handling:
-
-- **Flat File Source**:
-  - Logs errors if the file cannot be read.
-  - Skips rows with errors and writes them to an error output.
-- **Derived Column Transformation on Failed Cases**:
-  - Redirect rows with null or invalid data to an error output.
-- **OLE DB Destination**:
-  - Ensures data integrity by checking constraints and logging errors.
-- **To Be Done:**: handles the fail path such as by logging
 
 #### Outcomes:
 
@@ -154,7 +144,6 @@
 
 - **Successful Records**:
   - Duplicate records are removed while retaining essential information like the total purchase amount, the oldest registration date, and the most recent login date.
-- **To Be Done: Test SQL Query**
 
 ### 3. Data Cleaning: Error Handling
 
@@ -183,7 +172,6 @@
 
 - **General**:
   - Redirects rows with errors to the `stg.Users_Errors` table adn ensures that records with data quality issues are isolated for further review.
-- **To Be Done: Conditional Split**: handles the fail path such as by logging
 
 #### Outcomes:
 
@@ -216,7 +204,6 @@
   - Records that meet data quality standards (as defined in step 3.) remain in the `stg.Users` table.
 - **Error Records**:
   - Records identified as errors are removed from the `stg.Users` table and inserted in the `stg.Users_Errors` table for further review.
-- **To Be Done: Test SQL Query**
 
 ### 5. Incremental Load to Production
 
@@ -279,5 +266,11 @@
 - New records are inserted into the `prod.Users` table.
 - Existing records are updated with the latest data from the `stg.Users` table.
 - Any errors encountered during the process are sent into `stg.Users_Errors` for further review.
-- **To Be Done: Test SQL Query**
-- **To Be Done:**: handles the fail path such as by logging
+
+### Result of Execution:
+
+In the extraction stage, all 33 records are inserted into the staging table. In the first cleaning stage, 3 records are identified as duplicates and removed. At this stage, 2 records throw an error or cant be type casted, so they are sent to a database `dbo.Error_Log_For_Null_Validation` for manual inspection (one is non-number age and the other is a future date). Then, during the error handling stage, 8 records are found, whether because of null UserID, null/malformed Email, null registration date, negative or null age, negative purchase total, future dates, etc. In the incremental load stage, after removing the 3 duplicates and isolated the 10 records, there are 20 records left that will be loaded into production table.
+
+The most challenging part for me is definitely making my best assumption to come up with appropriate criteria such as what to filter out, what counts as error, what should be kept and sent to production table. I think this would be resolved in real-world by having a clear communication with the stakeholders and understanding the business requirements better, but since this is a home task, I had to make my best guess. It was also a bit of a challenge to handle the fail-path, for example I am unsure of how much to handle and the best practices for it. As a solution, I decided to create a new table `stg.Users_Errors` to insert malformed entries for manual inspection. There are also other `dbo.*` databases that I used to store results that caused an error during parts that I think may be crucial or sensitive.
+
+todo: update readme to link directly to dir

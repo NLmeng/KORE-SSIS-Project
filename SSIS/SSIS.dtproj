@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-D8T55E6</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnYvtb5BXMkOA1CffpoB3SQAAAAACAAAAAAAQZgAAAAEAACAAAADgPCrXlzej3ptGtDMmoci02YOYbs/V7X5QC7kLPvL4UAAAAAAOgAAAAAIAACAAAABHYrHkgRossX3aDtC+ZCinG3Ig7Txyg+tD+FOMlIO/gJAAAADm66Z4pbcnCQtTnGYVHDqhg+3vsn94pfQFHHi5EchlLGnrsZzZp8EPp6ix9C3fYQjzI7pu1CUMmLLonycAS9GdGdFNx7pJcKbvf6YWROTfWreJdKzYs62nOmndy6vmsZxDnsscE47TZY8f3PLDPQg1VFaP8JtebbM9LHhmA7TuHJICpyGeu4/2pAAaBwkXtPxAAAAALKdPPVMvlF+SENJmK4gz3m31dQDHar7JAuraZw5UtmZsknYG5Qm18tlHRs8bJm7Cwk9aNzoYDikCdCHdk5+kUA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnYvtb5BXMkOA1CffpoB3SQAAAAACAAAAAAAQZgAAAAEAACAAAABOZQvK2asupwm1RqUVYFa4xwQx7VfRY04A+3oUOkiOwwAAAAAOgAAAAAIAACAAAACM8dFNgyZiOg5ifdKjEFdsf+gnvsETrNy3nvaEtHd0H5AAAADjIW6EkTSu4jxE4KnVoXi/xZs1skdy3C5t+wEynznzExNfQgLyE92MgHRBW1LBDnYd9bbZTYg83U2PSBdihJgmqm9WVNTAXurTqgI85PYeecHZ2l2hBRqDQg5NYCou2Dczt67DXu/MAvaZTFyFFs20w8yCau2URRvhhr6LtVMvxSzuUUdkOc7UdF2FjqXsOotAAAAAbog7uss4t0zSZ4pGj4nJqlGbEiY5xgiXA61gD2EJemo2GGUfov2a6odFMMPGBANPowPiExEs1IbDaGzes5g2MA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,16 +42,30 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">74</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">104</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{D9B8B183-AE2A-4877-AD3B-E1831693EBF1}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{C8AA446F-0EF5-4F10-A8A0-055C327CA7B5}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="ConnectionManagerName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{3893CC74-7A5B-432D-9319-84460D97AA68}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_Lymeng_Naret</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="CM.DESKTOP-D8T55E6\SQLEXPRESS.KoreAssignment_Lymeng_Naret.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
