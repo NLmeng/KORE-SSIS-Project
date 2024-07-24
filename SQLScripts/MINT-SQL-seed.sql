@@ -1,10 +1,10 @@
-IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'KoreAssignment_{Lymeng_Naret}')
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'KoreAssignment_Lymeng_Naret')
 BEGIN
-	CREATE DATABASE [KoreAssignment_{Lymeng_Naret}];
+	CREATE DATABASE [KoreAssignment_Lymeng_Naret];
 END
 GO
 
-USE [KoreAssignment_{Lymeng_Naret}]
+USE [KoreAssignment_Lymeng_Naret]
 GO
 
 -- Check and create stg schema if it does not exist
@@ -51,5 +51,21 @@ CREATE TABLE prod.Users (
 	PurchaseTotal FLOAT,
 	RecordLastUpdated DATETIME DEFAULT GETDATE()
 	);
+END
+GO
+
+-- create a table to isolate error cases to
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'stg.Users_Errors') AND type in (N'U'))
+BEGIN
+CREATE TABLE stg.Users_Errors (
+    StgID INT,
+    UserID INT,
+    FullName NVARCHAR(255),
+    Age INT,
+    Email NVARCHAR(255),
+    RegistrationDate DATE,
+    LastLoginDate DATE,
+    PurchaseTotal FLOAT
+);
 END
 GO
