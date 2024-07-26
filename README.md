@@ -79,16 +79,15 @@ NOTE: you may find more records than expected as the backuped database already h
 
 #### Outcomes:
 
-- **Successful Records**:
-  - Successfully extracted, transformed, and loaded into the `stg.Users` table.
+- Successfully extracted, transformed, and loaded 33 rows into the `stg.Users` table.
 
 ### 2. Data Cleaning: Remove Duplicates
 
-**Overview**: identify and remove duplicate records in the staging table based on the UserID, ensuring to keep track (assuming we want to sum the total) of the total purchase amount, the oldest registration date, and the most recent login date.
+**Overview**: identify and remove duplicate records in the staging table based on the UserID, ensuring to keep track (assuming we want to sum the total) of the total purchase amount, keep the oldest registration date, and keep the most recent login date.
 
 #### Steps:
 
-1. **Execute SQL Task: Transform - Remove Duplicates**: executes SQL statements to remove duplicate records in the `stg.Users` table, keeping the relevant information. I merged dupes with the same UserID by summing purchase total, keep min reg date, keep max log date, and keep other info same as the entry with max login date.
+1. **Execute SQL Task: Transform - Remove Duplicates**: executes SQL statements to remove duplicate records in the `stg.Users` table, keeping the relevant information. I merged dupes with the same UserID by summing purchase total, keep oldest registration date, keep newest login date, and keep other info the same as the entry with the newest login date.
 
 2. **SQL Script**:
 
@@ -151,16 +150,15 @@ NOTE: you may find more records than expected as the backuped database already h
 
 #### Outcomes:
 
-- **Successful Records**:
-  - Duplicate records are removed while retaining essential information like the total purchase amount, the oldest registration date, and the most recent login date.
+- Duplicate records are removed while retaining essential information like the total purchase amount (sum from the records with the same UserID), the oldest registration date, and the most recent login date.
 
 ### 3. Data Cleaning: Error Handling
 
-**Overview**: isolate and handle records that do not meet data quality standards by directing them to an error table.
+**Overview**: isolate and handle records that do not meet data quality standards by isolating them to an error table.
 
 #### Steps:
 
-1. **Conditional Split Transformation**: direct rows to different outputs based on specified conditions to identify error records. Create error handling for invalid records. Remove if: null UserID, null RegistrationDate, null FullName, null Email, null or non-positive Age, null or negative PurchaseTotal, future LastLoginDate, future RegistrationDate, RegistrationDate after LastLoginDate, invalid email format (missing "@" or ".").
+1. **Conditional Split Transformation**: direct rows to different outputs based on specified conditions to identify error records. Criterias for remove are: null UserID, null RegistrationDate, null FullName, null Email, null or non-positive Age, null or negative PurchaseTotal, future LastLoginDate, future RegistrationDate, RegistrationDate that happens after LastLoginDate, invalid email format (missing "@" or ".").
 
 2. **OLE DB Destination - Users_Errors**: writes error records to the `stg.Users_Errors` table.
 
@@ -174,18 +172,13 @@ NOTE: you may find more records than expected as the backuped database already h
      - Connect to the `stg.Users` table to fetch records for error handling.
 
 4. **Union All Transformation**: combines multiple error outputs into a single flow before directing them to the error table.
+
    - **Configuration**:
      - Combine outputs from the Conditional Split to handle various error types.
 
-#### Error Handling:
-
-- **General**:
-  - Redirects rows with errors to the `stg.Users_Errors` table adn ensures that records with data quality issues are isolated for further review.
-
 #### Outcomes:
 
-- **Error Records**:
-  - Records with data quality issues are redirected to the `stg.Users_Errors` table.
+  - Records with data quality issues are redirected to the `stg.Users_Errors` table and ensures that records with data quality issues are isolated for further review.
 
 ### 4. Data Cleaning: Isolation of Error Records
 
@@ -196,10 +189,7 @@ NOTE: you may find more records than expected as the backuped database already h
 1. **Execute SQL Task: Transform - Isolation** executes SQL statements to remove entries with errors from the `stg.Users` table.
 
    - **Configuration**:
-
-     - Set the **ConnectionType** to **OLE DB**.
      - use the following SQL statement:
-
        ```sql
        -- Delete entries from stg.Users that are present in stg.Users_Errors
        DELETE u
@@ -209,10 +199,8 @@ NOTE: you may find more records than expected as the backuped database already h
 
 ### Outcomes:
 
-- **Successful Records**:
-  - Records that meet data quality standards (as defined in step 3.) remain in the `stg.Users` table.
-- **Error Records**:
-  - Records identified as errors are removed from the `stg.Users` table and inserted in the `stg.Users_Errors` table for further review.
+  - Records that meet data quality standards remain in the `stg.Users` table.
+  - Records identified as errors (as defined in step 3.) are removed from the `stg.Users` table and inserted in the `stg.Users_Errors` table for further review.
 
 ### 5. Incremental Load to Production
 
@@ -232,7 +220,7 @@ NOTE: you may find more records than expected as the backuped database already h
      - Set the connection to the production database.
      - Configure the lookup to match `UserID` in the `prod.Users` table.
      - Set the lookup to redirect rows with no matching entries to the **No Match Output** (new records).
-     - Map the columns from the input to the lookup columns:
+     - Map the columns from the input to the lookup columns.
 
 3. **OLE DB Destination - Production Users (Insert New Records)** Inserts new records into the `prod.Users` table.
 
@@ -243,10 +231,8 @@ NOTE: you may find more records than expected as the backuped database already h
 4. **OLE DB Command - Production Users (Update Existing Records)**: updates existing records in the `prod.Users` table.
 
    - **Configuration**:
-
      - Set the connection to the production database.
      - use the following SQL statement:
-
        ```sql
        UPDATE prod.Users
        SET
@@ -259,7 +245,6 @@ NOTE: you may find more records than expected as the backuped database already h
            RecordLastUpdated = GETDATE()
        WHERE UserID = ?
        ```
-
    - **Parameter Mapping**:
      - Map the following input columns to the corresponding parameters:
        - `FullName` to `Param_0`
@@ -278,6 +263,6 @@ NOTE: you may find more records than expected as the backuped database already h
 
 ### Result of Execution:
 
-In the extraction stage, all 33 records are inserted into the staging table. In the first cleaning stage, 3 records are identified as duplicates and removed. At this stage, 2 records throw an error or cant be type casted, so they are sent to a database `dbo.Error_Log_For_Null_Validation` for manual inspection (one is non-number age and the other is a future date). Then, during the error handling stage, 8 records are found, whether because of null UserID, null/malformed Email, null registration date, negative or null age, negative purchase total, future dates, etc. In the incremental load stage, after removing the 3 duplicates and isolated the 10 records, there are 20 records left that will be loaded into production table. If the number of record differs, please see [NOTE](#executing-the-ssis-Package).
+In the extraction stage, all 33 records are inserted into the staging table. In the first cleaning stage, 3 records are identified as duplicates and removed. The criteria to identify duplicates is based on the record's UserID. (John Doe's 101 had 2 duplicates and Bob Marley's 112 had 1 duplicate). When validating the records and before type conversion, 2 records throw an error or cant be type casted, so they are sent to a database `dbo.Error_Log_For_Null_Validation` for manual inspection (one is non-number age and the other is a future date). Then, during the error handling stage, 8 records are found, whether because of null UserID, null RegistrationDate, null FullName, null Email, null or non-positive Age, null or negative PurchaseTotal, future LastLoginDate, future RegistrationDate, RegistrationDate that happens after LastLoginDate, invalid email format (missing "@" or "."). In the incremental load stage, after removing the 3 duplicates and isolated the 10 records (2 from failed type casting + 8 from error handling), there are 20 records left that will be loaded into production table. If the number of record differs, please see [NOTE](#executing-the-ssis-Package).
 
-The most challenging part for me is definitely making my best assumption to come up with appropriate criteria such as what to filter out, what counts as error, what should be kept and sent to production table. I think this would be resolved in real-world by having a clear communication with the stakeholders and understanding the business requirements better, but since this is a home task, I had to make my best guess. It was also a bit of a challenge to handle the fail-path, for example I am unsure of how much to handle and the best practices for it. As a solution, I decided to create a new table `stg.Users_Errors` to insert malformed entries for manual inspection. There are also other `dbo.*` databases that I used to store results that caused an error during parts that I think may be crucial or sensitive.
+The most challenging part for me is definitely making my best assumption to come up with appropriate criteria such as what to filter out, what counts as error, what should be kept and sent to production table. I think this would be resolved in real-world by having a clear communication with the stakeholders and understanding the business requirements better, but since this is a home task, I had to make my best guess. I was also relatively new to these Microsoft's tools (eg. SSIS), so I was unsure on which tool works best for which scenario, which would be resolved from more experience and exposure. It was also a bit of a challenge to handle the fail-path, for example I am unsure of how much to handle and the best practices for it. As a solution, I decided to create a new table `stg.Users_Errors` to insert malformed entries for manual inspection. There are also other `dbo.*` databases that I used to store results that caused an error during parts that I think may be crucial or sensitive.
